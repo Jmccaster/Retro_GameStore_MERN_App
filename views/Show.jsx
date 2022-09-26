@@ -14,7 +14,7 @@ class Show extends React.Component {
           <h1>{this.props.game.title}</h1>
           <h3>Genre: {this.props.game.genre}</h3>
           <h3>Description: {this.props.game.description}</h3>
-          <h3>Game is playable on: {this.props.game.console}</h3>
+          <h3>Platform: {this.props.game.platform}</h3>
           <h3>
             Is the game checked out?:{" "}
             {this.props.game.gameCheckedOut

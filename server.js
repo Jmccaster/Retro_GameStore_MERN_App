@@ -95,7 +95,7 @@ app.get("/games/seed", (req, res) => {
         genre: "Shooter",
         description:
           "Halo Infinite is a 2021 first-person shooter game developed by 343 Industries and published by Xbox Game Studios. It is the sixth mainline entry in the Halo series, and the third in the Reclaimer Saga following Halo 5: Guardians (2015). The campaign follows the human super-soldier Master Chief and his fight against the enemy Banished on the Forerunner ringworld Zeta Halo, also known as Installation 07. Unlike previous installments in the series, the multiplayer portion of the game is free-to-play.",
-        console: "Xbox One and Xbox Series S/X",
+        platform: "Xbox One and Xbox Series S/X",
         gameCheckedOut: false,
       },
       {
@@ -103,7 +103,7 @@ app.get("/games/seed", (req, res) => {
         genre: "Action/Adventure",
         description:
           "Ghost of Tsushima is a 2020 action-adventure game developed by Sucker Punch Productions and published by Sony Interactive Entertainment. The player controls Jin Sakai, a samurai on a quest to protect Tsushima Island during the first Mongol invasion of Japan.",
-        console: "Playstation 4 and Playstation 5",
+        platform: "Playstation 4 and Playstation 5",
         gameCheckedOut: true,
       },
       {
@@ -111,7 +111,7 @@ app.get("/games/seed", (req, res) => {
         genre: "Racing",
         description:
           "Mario Kart 8 Deluxe, is an enhanced version for the Nintendo Switch. It includes all previously released DLC, additional content, gameplay tweaks, 1080p graphics while docked, and 720p in handheld mode. It retains Mario Kart series game mechanics, where players control Mario franchise characters in kart racing, collecting a variety of items to hinder opponents or gain advantages in the race. Mario Kart 8 Deluxe introduces anti-gravity driving on walls or ceilings, and allows players to bump into each other for a short boost. It has single-player and multiplayer modes, including online via the Nintendo Network.",
-        console: "Nintendo Switch",
+        platform: "Nintendo Switch",
         gameCheckedOut: false,
       },
     ],

@@ -32,9 +32,9 @@ class Edit extends React.Component {
               required
             />
             <br />
-            Console:{" "}
+            Platform:{" "}
             <input
-              defaultValue={game.console}
+              defaultValue={game.platform}
               type="text"
               name="console"
               required
