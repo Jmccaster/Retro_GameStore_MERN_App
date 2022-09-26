@@ -11,29 +11,25 @@ class Index extends React.Component {
           <a href={"/games/new"}>Add New Game</a>
         </nav>
         <ul>
-          {games
-            .map((game, i) => {
-              return (
-                <li key={i}>
-                  <a href={`/games/${game.id}`}>{game.title}</a>
-                  <br />
+          {games.map((game, i) => {
+            return (
+              <li key={i}>
+                <a href={`/games/${game.id}`}>{game.title}</a>
+                <br />
 
-                  <form action={`/games/${game.id}/edit`}>
-                    <input type="submit" value="Edit" />
-                  </form>
+                <form action={`/games/${game.id}/edit`}>
+                  <input type="submit" value="Edit" />
+                </form>
 
-                  <form
-                    action={`/games/${game._id}?_method=DELETE`}
-                    method="POST"
-                  >
-                    <input type="submit" value="Delete" />
-                  </form>
-                </li>
-              );
-            })
-            .filter((game, i) => {
-              return <li>{game.platform === "Playstation"}</li>;
-            })}
+                <form
+                  action={`/games/${game._id}?_method=DELETE`}
+                  method="POST"
+                >
+                  <input type="submit" value="Delete" />
+                </form>
+              </li>
+            );
+          })}
         </ul>
       </DefaultLayout>
     );
