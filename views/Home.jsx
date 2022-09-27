@@ -8,7 +8,7 @@ class Home extends React.Component {
         <div>
           <a href="/nintendogames">Nintendo Page</a>
           <br />
-          <a href="Microsoftgames">Microsoft Page</a>
+          <a href="microsoftgames">Microsoft Page</a>
           <br />
           <a href="/sonygames">Sony Page</a>
           <br />

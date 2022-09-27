@@ -8,6 +8,8 @@ class Users extends React.Component {
     return (
       <DefaultLayout title={"User Dashboard"}>
         <nav>
+          <a href="/">Home</a>
+          <br />
           <a href={"/users/new"}>Add New User</a>
         </nav>
         <ul>

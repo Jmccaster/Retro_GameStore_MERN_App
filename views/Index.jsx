@@ -10,6 +10,8 @@ class Index extends React.Component {
     return (
       <DefaultLayout title={` ${pName} Games Dashboard `}>
         <nav>
+          <a href="/">Home</a>
+          <br />
           <a href={`/${platform}/new`}>Add New Game</a>
         </nav>
         <ul>
