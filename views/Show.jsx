@@ -3,26 +3,26 @@ const DefaultLayout = require("./layouts/Default");
 
 class Show extends React.Component {
   render() {
-    const { games } = this.props;
+    const { nintendoGame } = this.props;
     return (
-      <DefaultLayout title={""}>
+      <DefaultLayout title={" "}>
         <div>
           <nav>
-            <a href={"/games"}>Back to Dashboard</a>
+            <a href={"/nintendogames"}>Back to Dashboard</a>
           </nav>
           <h1>Game Profile</h1>
-          <h1>{this.props.game.title}</h1>
-          <h3>Genre: {this.props.game.genre}</h3>
-          <h3>Description: {this.props.game.description}</h3>
-          <h3>Platform: {this.props.game.platform}</h3>
+          <h1>{nintendoGame.title}</h1>
+          <h3>Genre: {nintendoGame.genre}</h3>
+          <h3>Description: {nintendoGame.description}</h3>
+          <h3>Platform: {nintendoGame.platform}</h3>
           <h3>
             Is the game checked out?:{" "}
-            {this.props.game.gameCheckedOut
+            {nintendoGame.gameCheckedOut
               ? "Sorry, game is currently unavailable."
               : "Game is currently available to rent!"}
           </h3>
           <br />
-          <a href="/games"></a>
+          <a href="nintendogames"></a>
         </div>
       </DefaultLayout>
     );

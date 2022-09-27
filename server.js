@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 
-const Game = require("./models/games");
+const Nintendo = require("./models/NintendoGames");
 
 const mongoose = require("mongoose");
 
@@ -35,65 +35,69 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Retro Game Store!");
 });
 
-app.get("/games", (req, res) => {
-  Game.find({}, (err, allGames) => {
+app.get("/nintendogames", (req, res) => {
+  Nintendo.find({}, (err, allNintendoGames) => {
     console.log(err);
 
     res.render("Index", {
-      games: allGames,
+      nintendoGames: allNintendoGames,
     });
   });
 });
 
 // New Route
-app.get("/games/new", (req, res) => {
+app.get("/nintendogames/new", (req, res) => {
   res.render("New", {});
 });
 
 // Create/ Post Route
-app.post("/games", (req, res) => {
+app.post("/nintendogames", (req, res) => {
   if (req.body.gameCheckedOut === "on") {
     req.body.gameCheckedOut = true;
   } else {
     req.body.gameCheckedOut = false;
   }
-  Game.create(req.body, (err, createdGame) => {
+  Game.create(req.body, (err, createdNintendoGame) => {
     console.log(err);
   });
-  res.redirect("/games");
+  res.redirect("/nintendogames");
 });
 
 // Edit Route
-app.get("/games/:id/edit", (req, res) => {
-  Game.findById(req.params.id, (err, foundGame) => {
+app.get("/nintendogames/:id/edit", (req, res) => {
+  Nintendo.findById(req.params.id, (err, foundNintendoGame) => {
     console.log(err);
-    res.render("Edit", { game: foundGame });
+    res.render("Edit", { nintendogame: foundNintendoGame });
   });
 });
 
 // Update/Put Route
-app.put("/games/:id", (req, res) => {
+app.put("/nintendogames/:id", (req, res) => {
   if (req.body.gameCheckedOut === "on") {
     req.body.gameCheckedOut = true;
   } else {
     req.body.gameCheckedOut = false;
   }
-  Game.findByIdAndUpdate(req.params.id, req.body, (err, updatedGame) => {
-    res.redirect(`/games/${req.params.id}`);
-  });
+  Nintendo.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    (err, updatedNintendoGame) => {
+      res.redirect(`/nintendogames/${req.params.id}`);
+    }
+  );
 });
 
 // Delete Route
-app.delete("/games/:id", (req, res) => {
-  Game.findByIdAndRemove(req.params.id, (err, foundGame) => {
-    console.log("Deleted", foundGame);
-    res.redirect("/games");
+app.delete("/nintendogames/:id", (req, res) => {
+  Nintendo.findByIdAndRemove(req.params.id, (err, foundNintendoGame) => {
+    console.log("Deleted", foundNintendoGame);
+    res.redirect("/nintendogames");
   });
 });
 
 // Seeds Route (Optional)
-app.get("/games/seed", (req, res) => {
-  Game.create(
+app.get("/nintendogames/seed", (req, res) => {
+  Nintendo.create(
     [
       {
         title: "Wario World",
@@ -112,7 +116,7 @@ app.get("/games/seed", (req, res) => {
         gameCheckedOut: true,
       },
       {
-        title: "Dragon Ball: Advance Adventure",
+        title: "Dragon Ball: Advanced Adventure",
         genre: "Beat-'em-up/Action",
         description:
           "Dragon Ball: Advanced Adventure is based on the worldwide favorite Dragon ball TV series. You'll get to become young Goku and play through his earliest adventures, as he courageously searches for the famous Dragon Balls.",
@@ -121,18 +125,18 @@ app.get("/games/seed", (req, res) => {
       },
     ],
     (err, data) => {
-      res.redirect("/games");
+      res.redirect("/nintendogames");
     }
   );
 });
 
 // Show Route
-app.get("/games/:id", (req, res) => {
-  Game.findById(req.params.id, (err, foundGame) => {
+app.get("/nintendogames/:id", (req, res) => {
+  Nintendo.findById(req.params.id, (err, foundNintendoGame) => {
     console.log(err);
-    console.log("Found: ", foundGame);
+    console.log("Found: ", foundNintendoGame);
     res.render("Show", {
-      game: foundGame,
+      nintendoGame: foundNintendoGame,
     });
   });
 });

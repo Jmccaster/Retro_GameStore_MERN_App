@@ -7,7 +7,7 @@ class New extends React.Component {
     return (
       <DefaultLayout title={"New Video Game Page"}>
         <>
-          <form action="/games" method="POST">
+          <form action="/nintendogames" method="POST">
             Title: <input type="text" name="title" required />
             <br />
             Genre: <input type="text" name="genre" id="" required />

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const gameSchema = new mongoose.Schema({
+const nintendoSchema = new mongoose.Schema({
   title: { type: String, required: true },
   genre: { type: String, required: true },
   description: { type: String, required: true },
@@ -8,6 +8,6 @@ const gameSchema = new mongoose.Schema({
   gameCheckedOut: Boolean,
 });
 
-const Game = mongoose.model("Game", gameSchema);
+const Nintendo = mongoose.model("Nintendo", nintendoSchema);
 
-module.exports = Game;
+module.exports = Nintendo;
