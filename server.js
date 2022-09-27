@@ -30,6 +30,11 @@ app.use(methodOverride("_method"));
 //Routes (CRUD)
 
 // Index Route
+//Home Page
+app.get("/", (req, res) => {
+  res.send("Welcome to the Retro Game Store!");
+});
+
 app.get("/games", (req, res) => {
   Game.find({}, (err, allGames) => {
     console.log(err);
@@ -107,10 +112,10 @@ app.get("/games/seed", (req, res) => {
         gameCheckedOut: true,
       },
       {
-        title: "Dragonball Advance Adventure",
+        title: "Dragon Ball: Advance Adventure",
         genre: "Beat-'em-up/Action",
         description:
-          "Dragonball Advanced Adventure is based on the worldwide favorite Dragonball TV series. You'll get to become young Goku and play through his earliest adventures, as he courageously searches for the famous Dragon Balls.",
+          "Dragon Ball: Advanced Adventure is based on the worldwide favorite Dragon ball TV series. You'll get to become young Goku and play through his earliest adventures, as he courageously searches for the famous Dragon Balls.",
         platform: "Game Boy Advance",
         gameCheckedOut: false,
       },
