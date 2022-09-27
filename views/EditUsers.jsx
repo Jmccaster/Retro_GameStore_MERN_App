@@ -47,6 +47,4 @@ class EditUsers extends React.Component {
   }
 }
 
-// var icon = (area == 1) ? icon1 : (area == 2) ? icon2 : icon0;
-
 module.exports = EditUsers;
