@@ -91,27 +91,27 @@ app.get("/games/seed", (req, res) => {
   Game.create(
     [
       {
-        title: "Halo Infinite",
-        genre: "Shooter",
+        title: "Wario World",
+        genre: "Adventure/Platformer",
         description:
-          "Halo Infinite is a 2021 first-person shooter game developed by 343 Industries and published by Xbox Game Studios. It is the sixth mainline entry in the Halo series, and the third in the Reclaimer Saga following Halo 5: Guardians (2015). The campaign follows the human super-soldier Master Chief and his fight against the enemy Banished on the Forerunner ringworld Zeta Halo, also known as Installation 07. Unlike previous installments in the series, the multiplayer portion of the game is free-to-play.",
-        platform: "Xbox One and Xbox Series S/X",
+          "Wario World is a 3D platform game developed by Treasure and published by Nintendo for the GameCube. The game's plot centers on Wario and his quest to regain his treasure and his castle from the evil gem, Black Jewel.",
+        platform: "Nintendo Gamecube",
         gameCheckedOut: false,
       },
       {
-        title: "Ghost of Tsushima",
-        genre: "Action/Adventure",
+        title: "Chrono Trigger",
+        genre: "RPG",
         description:
-          "Ghost of Tsushima is a 2020 action-adventure game developed by Sucker Punch Productions and published by Sony Interactive Entertainment. The player controls Jin Sakai, a samurai on a quest to protect Tsushima Island during the first Mongol invasion of Japan.",
-        platform: "Playstation 4 and Playstation 5",
+          "Gameplay. Chrono Trigger features standard role-playing video game gameplay. The player controls the protagonist and his companions in the game's two-dimensional world, consisting of various forests, cities, and dungeons. Navigation occurs via an overworld map, depicting the landscape from a scaled-down overhead view.",
+        platform: "SNES, Nintendo 3DS",
         gameCheckedOut: true,
       },
       {
-        title: "Mario Kart 8 Deluxe",
-        genre: "Racing",
+        title: "Dragonball Advance Adventure",
+        genre: "Beat-'em-up/Action",
         description:
-          "Mario Kart 8 Deluxe, is an enhanced version for the Nintendo Switch. It includes all previously released DLC, additional content, gameplay tweaks, 1080p graphics while docked, and 720p in handheld mode. It retains Mario Kart series game mechanics, where players control Mario franchise characters in kart racing, collecting a variety of items to hinder opponents or gain advantages in the race. Mario Kart 8 Deluxe introduces anti-gravity driving on walls or ceilings, and allows players to bump into each other for a short boost. It has single-player and multiplayer modes, including online via the Nintendo Network.",
-        platform: "Nintendo Switch",
+          "Dragonball Advanced Adventure is based on the worldwide favorite Dragonball TV series. You'll get to become young Goku and play through his earliest adventures, as he courageously searches for the famous Dragon Balls.",
+        platform: "Game Boy Advance",
         gameCheckedOut: false,
       },
     ],
