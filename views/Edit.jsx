@@ -36,7 +36,7 @@ class Edit extends React.Component {
             <input
               defaultValue={game.platform}
               type="text"
-              name="console"
+              name="platform"
               required
             />
             <br />

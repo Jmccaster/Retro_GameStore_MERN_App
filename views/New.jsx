@@ -14,7 +14,7 @@ class New extends React.Component {
             <br />
             Description: <input type="textarea" name="description" required />
             <br />
-            Platform: <input type="text" name="console" required />
+            Platform: <input type="text" name="platform" required />
             <br />
             Availability: <input type="checkbox" name="gameCheckedOut" />
             <br />
