@@ -3,15 +3,13 @@ const React = require("react");
 const DefaultLayout = require("./layouts/Default");
 class NewUsers extends React.Component {
   render() {
-    const { platform } = this.props;
-    const { pName } = this.props;
     return (
       <DefaultLayout title={"New Users Page"}>
         <>
           <form action="/users" method="POST">
             Username: <input type="text" name="username" required />
             <br />
-            Email: <input type="text" name="genre" required />
+            Email: <input type="text" name="email" required />
             <br />
             Bio: <input type="textarea" name="bio" />
             <br />

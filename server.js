@@ -79,7 +79,11 @@ app.get("/sonygames", (req, res) => {
 
 // Users Page
 app.get("/users", (req, res) => {
-  res.send("Users Page");
+  User.find({}, (err, allUsers) => {
+    console.log(err);
+
+    res.render("UsersIndex", { users: allUsers });
+  });
 });
 
 // New Routes
@@ -143,6 +147,18 @@ app.post("/sonygames", (req, res) => {
     console.log(err);
   });
   res.redirect("/sonygames");
+});
+
+app.post("/users", (req, res) => {
+  if (req.body.renterOrOwner === "on") {
+    req.body.renterOrOwner = true;
+  } else {
+    req.body.renterOrOwner = false;
+  }
+  User.create(req.body, (err, createUser) => {
+    console.log(err);
+  });
+  res.redirect("/users");
 });
 
 // Edit Routes
