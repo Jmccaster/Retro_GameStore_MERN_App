@@ -103,7 +103,7 @@ app.get("/games/seed", (req, res) => {
         genre: "RPG",
         description:
           "Gameplay. Chrono Trigger features standard role-playing video game gameplay. The player controls the protagonist and his companions in the game's two-dimensional world, consisting of various forests, cities, and dungeons. Navigation occurs via an overworld map, depicting the landscape from a scaled-down overhead view.",
-        platform: "SNES, Nintendo 3DS",
+        platform: "SNES, Nintendo DS",
         gameCheckedOut: true,
       },
       {
