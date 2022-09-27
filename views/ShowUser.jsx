@@ -1,7 +1,7 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/Default");
 
-class ShowUsers extends React.Component {
+class ShowUser extends React.Component {
   render() {
     const { user } = this.props;
     return (
@@ -19,10 +19,10 @@ class ShowUsers extends React.Component {
             ? "I rent games."
             : "I own games and lend them out to others."}
         </h3>
-        {/* ? "I rent games and lend the, out to others." */}
+        {/* ? "I rent games and lend them out to others." */}
       </DefaultLayout>
     );
   }
 }
 
-module.exports = ShowUsers;
+module.exports = ShowUser;

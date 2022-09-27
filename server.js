@@ -195,6 +195,13 @@ app.get("/sonygames/:id/edit", (req, res) => {
   });
 });
 
+app.get("/user/:id/edit", (req, res) => {
+  User.findById(req.params.id, (err, foundUser) => {
+    console.log(err);
+    res.render("EditUser", { user: foundUser });
+  });
+});
+
 // Update/Put Routes
 app.put("/nintendogames/:id", (req, res) => {
   if (req.body.gameCheckedOut === "on") {
@@ -232,13 +239,20 @@ app.put("/sonygames/:id", (req, res) => {
   } else {
     req.body.gameCheckedOut = false;
   }
-  Sony.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    (err, updatedNintendoGame) => {
-      res.redirect(`/sonygames/${req.params.id}`);
-    }
-  );
+  Sony.findByIdAndUpdate(req.params.id, req.body, (err, updatedSonyGame) => {
+    res.redirect(`/sonygames/${req.params.id}`);
+  });
+});
+
+app.put("/user/:id", (req, res) => {
+  if (req.body.renterOrOwner === "on") {
+    req.body.renterOrOwner = true;
+  } else {
+    req.body.renterOrOwner = false;
+  }
+  User.findByIdAndUpdate(req.params.id, req.body, (err, updatedUser) => {
+    res.redirect(`/users/${req.params.id}`);
+  });
 });
 
 // Delete Routes
@@ -260,6 +274,13 @@ app.delete("/sonygames/:id", (req, res) => {
   Sony.findByIdAndRemove(req.params.id, (err, foundSonyGame) => {
     console.log("Deleted", foundSonyGame);
     res.redirect("/sonygames");
+  });
+});
+
+app.delete("/users/:id", (req, res) => {
+  User.findByIdAndRemove(req.params.id, (err, foundUser) => {
+    console.log("Deleted", foundUser);
+    res.redirect("/user");
   });
 });
 
@@ -339,7 +360,7 @@ app.get("/users/:id", (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     console.log(err);
     console.log("Found: ", foundUser);
-    res.render("ShowUsers", { user: foundUser });
+    res.render("ShowUser", { user: foundUser });
   });
 });
 

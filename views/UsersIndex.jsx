@@ -15,6 +15,17 @@ class UsersIndex extends React.Component {
             return (
               <li key={i}>
                 <a href={`/users/${user.id}`}>{user.username}</a>
+
+                <form action={`users/${user._id}/edit`}>
+                  <input type="submit" value="Edit" />
+                </form>
+
+                <form
+                  action={`/users/${user._id}?_method=DELETE`}
+                  method="POST"
+                >
+                  <input type="submit" value="Delete" />
+                </form>
               </li>
             );
           })}
