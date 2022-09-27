@@ -280,7 +280,7 @@ app.delete("/sonygames/:id", (req, res) => {
 app.delete("/users/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id, (err, foundUser) => {
     console.log("Deleted", foundUser);
-    res.redirect("/user");
+    res.redirect("/users");
   });
 });
 
