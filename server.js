@@ -150,11 +150,11 @@ app.post("/sonygames", (req, res) => {
 });
 
 app.post("/users", (req, res) => {
-  if (req.body.renterOrOwner === "on") {
-    req.body.renterOrOwner = true;
-  } else {
-    req.body.renterOrOwner = false;
-  }
+  // if (req.body.renterOrOwner === "on") {
+  //   req.body.renterOrOwner = true;
+  // } else {
+  //   req.body.renterOrOwner = false;
+  // }
   User.create(req.body, (err, createUser) => {
     console.log(err);
   });
