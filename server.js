@@ -82,7 +82,7 @@ app.get("/users", (req, res) => {
   User.find({}, (err, allUsers) => {
     console.log(err);
 
-    res.render("UsersIndex", { users: allUsers });
+    res.render("Users", { users: allUsers });
   });
 });
 
@@ -195,10 +195,10 @@ app.get("/sonygames/:id/edit", (req, res) => {
   });
 });
 
-app.get("/user/:id/edit", (req, res) => {
+app.get("/users/:id/edit", (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     console.log(err);
-    res.render("EditUser", { user: foundUser });
+    res.render("EditUsers", { user: foundUser });
   });
 });
 
@@ -244,12 +244,12 @@ app.put("/sonygames/:id", (req, res) => {
   });
 });
 
-app.put("/user/:id", (req, res) => {
-  if (req.body.renterOrOwner === "on") {
-    req.body.renterOrOwner = true;
-  } else {
-    req.body.renterOrOwner = false;
-  }
+app.put("/users/:id", (req, res) => {
+  // if (req.body.renterOrOwner === "on") {
+  //   req.body.renterOrOwner = true;
+  // } else {
+  //   req.body.renterOrOwner = false;
+  // }
   User.findByIdAndUpdate(req.params.id, req.body, (err, updatedUser) => {
     res.redirect(`/users/${req.params.id}`);
   });

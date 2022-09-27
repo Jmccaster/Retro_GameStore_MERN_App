@@ -34,12 +34,10 @@ class EditUsers extends React.Component {
               required
             />
             <br />
-            Will you be a buyer, a seller, or both?: Renter:
-            <input type="checkbox" name="renter" />
-            Owner:
-            <input type="checkbox" name="owner" />
-            Both:
-            <input type="checkbox" name="both" />
+            Will you be a buyer, a seller, or both?: Renter:{" "}
+            <input type="radio" name="renterOrOwner" value="renter" />
+            Owner: <input type="radio" name="renterOrOwner" value="owner" />
+            Both: <input type="radio" name="renterOrOwner" value="both" />
             <br />
             <input type="submit" value="Create User" />
           </form>
@@ -48,5 +46,7 @@ class EditUsers extends React.Component {
     );
   }
 }
+
+// var icon = (area == 1) ? icon1 : (area == 2) ? icon2 : icon0;
 
 module.exports = EditUsers;

@@ -24,8 +24,6 @@ class Show extends React.Component {
               ? "Sorry, game is currently unavailable."
               : "Game is currently available to rent!"}
           </h3>
-          <br />
-          <a href="nintendogames"></a>
         </div>
       </DefaultLayout>
     );

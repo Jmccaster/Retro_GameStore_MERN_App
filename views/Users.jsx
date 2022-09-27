@@ -1,7 +1,7 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/Default");
 
-class UsersIndex extends React.Component {
+class Users extends React.Component {
   render() {
     const { users } = this.props;
     console.log(users);
@@ -35,4 +35,4 @@ class UsersIndex extends React.Component {
   }
 }
 
-module.exports = UsersIndex;
+module.exports = Users;
