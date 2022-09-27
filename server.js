@@ -35,7 +35,7 @@ app.use(methodOverride("_method"));
 // Index Routes
 //Home Page
 app.get("/", (req, res) => {
-  res.send("Welcome to the Retro Game Store!");
+  res.render("Home");
 });
 
 // Nintendo Page
