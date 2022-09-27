@@ -3,28 +3,28 @@ const DefaultLayout = require("./layouts/Default");
 
 class Index extends React.Component {
   render() {
-    const { nintendoGames } = this.props;
-    console.log(this.props);
+    const { games } = this.props;
+    const { platform } = this.props;
+    const { pName } = this.props;
+    // console.log(this.props);
     return (
-      <DefaultLayout title={"Nintendo Games Dashboard"}>
+      <DefaultLayout title={` ${pName} Games Dashboard `}>
         <nav>
-          <a href={"/nintendogames/new"}>Add New Game</a>
+          <a href={`/${platform}/new`}>Add New Game</a>
         </nav>
         <ul>
-          {nintendoGames.map((nintendogame, i) => {
+          {games.map((game, i) => {
             return (
               <li key={i}>
-                <a href={`/nintendogames/${nintendogame.id}`}>
-                  {nintendogame.title}
-                </a>
+                <a href={`/${platform}/${game.id}`}>{game.title}</a>
                 <br />
 
-                <form action={`/nintendogames/${nintendogame.id}/edit`}>
+                <form action={`/${platform}/${game.id}/edit`}>
                   <input type="submit" value="Edit" />
                 </form>
 
                 <form
-                  action={`/nintendogames/${nintendogame._id}?_method=DELETE`}
+                  action={`/${platform}/${game._id}?_method=DELETE`}
                   method="POST"
                 >
                   <input type="submit" value="Delete" />

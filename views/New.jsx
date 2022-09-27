@@ -4,10 +4,12 @@ const React = require("react");
 const DefaultLayout = require("./layouts/Default");
 class New extends React.Component {
   render() {
+    const { platform } = this.props;
+    const { pName } = this.props;
     return (
-      <DefaultLayout title={"New Video Game Page"}>
+      <DefaultLayout title={`New ${pName} Game`}>
         <>
-          <form action="/nintendogames" method="POST">
+          <form action={`/${platform}`} method="POST">
             Title: <input type="text" name="title" required />
             <br />
             Genre: <input type="text" name="genre" id="" required />

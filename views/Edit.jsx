@@ -3,17 +3,15 @@ const DefaultLayout = require("./layouts/Default");
 
 class Edit extends React.Component {
   render() {
-    const { nintendogame } = this.props;
+    const { game } = this.props;
+    const { platform } = this.props;
     return (
       <DefaultLayout title="Edit Page">
         <div>
-          <form
-            action={`/nintendogames/${nintendogame._id}?_method=PUT`}
-            method="POST"
-          >
+          <form action={`/${platform}/${game._id}?_method=PUT`} method="POST">
             Title:{" "}
             <input
-              defaultValue={nintendogame.title}
+              defaultValue={game.title}
               type="text"
               name="title"
               required
@@ -21,7 +19,7 @@ class Edit extends React.Component {
             <br />
             Genre:{" "}
             <input
-              defaultValue={nintendogame.genre}
+              defaultValue={game.genre}
               type="text"
               name="genre"
               required
@@ -29,7 +27,7 @@ class Edit extends React.Component {
             <br />
             Description:{" "}
             <input
-              defaultValue={nintendogame.description}
+              defaultValue={game.description}
               type="textarea"
               name="description"
               required
@@ -37,14 +35,14 @@ class Edit extends React.Component {
             <br />
             Platform:{" "}
             <input
-              defaultValue={nintendogame.platform}
+              defaultValue={game.platform}
               type="text"
               name="platform"
               required
             />
             <br />
             Is the game checked out?:{" "}
-            {nintendogame.gameCheckedOUT ? (
+            {game.gameCheckedOUT ? (
               <input type="checkbox" name="gameCheckedOut" defaultChecked />
             ) : (
               <input type="checkbox" name="gameCheckedOut" />

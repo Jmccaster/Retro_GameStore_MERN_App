@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 
 const Nintendo = require("./models/NintendoGames");
+const Sony = require("./models/SonyGames");
+const Microsoft = require("./models/MicrosoftGames");
 
 const mongoose = require("mongoose");
 
@@ -40,14 +42,47 @@ app.get("/nintendogames", (req, res) => {
     console.log(err);
 
     res.render("Index", {
-      nintendoGames: allNintendoGames,
+      games: allNintendoGames,
+      platform: "nintendogames",
+      pName: "Nintendo",
+    });
+  });
+});
+
+app.get("/microsoftgames", (req, res) => {
+  Microsoft.find({}, (err, allMicrosoftGames) => {
+    console.log(err);
+
+    res.render("Index", {
+      games: allMicrosoftGames,
+      platform: "microsoftgames",
+      pName: "Microsoft",
+    });
+  });
+});
+
+app.get("/sonygames", (req, res) => {
+  Sony.find({}, (err, allSonyGames) => {
+    console.log(err);
+
+    res.render("Index", {
+      games: allSonyGames,
+      platform: "sonygames",
+      pName: "Sony",
     });
   });
 });
 
 // New Route
 app.get("/nintendogames/new", (req, res) => {
-  res.render("New", {});
+  res.render("New", {
+    platform: "nintendogames",
+    pName: "Nintendo",
+  });
+});
+
+app.get("/sonygames/new", (req, res) => {
+  res.send("New Sony Games");
 });
 
 // Create/ Post Route
@@ -67,7 +102,11 @@ app.post("/nintendogames", (req, res) => {
 app.get("/nintendogames/:id/edit", (req, res) => {
   Nintendo.findById(req.params.id, (err, foundNintendoGame) => {
     console.log(err);
-    res.render("Edit", { nintendogame: foundNintendoGame });
+    res.render("Edit", {
+      game: foundNintendoGame,
+      platform: "nintendogames",
+      pName: "Nintendo",
+    });
   });
 });
 
@@ -136,7 +175,9 @@ app.get("/nintendogames/:id", (req, res) => {
     console.log(err);
     console.log("Found: ", foundNintendoGame);
     res.render("Show", {
-      nintendoGame: foundNintendoGame,
+      game: foundNintendoGame,
+      platform: "nintendogames",
+      pName: "Nintendo",
     });
   });
 });
