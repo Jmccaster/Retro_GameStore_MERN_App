@@ -335,6 +335,14 @@ app.get("/sonygames/:id", (req, res) => {
   });
 });
 
+app.get("/users/:id", (req, res) => {
+  User.findById(req.params.id, (err, foundUser) => {
+    console.log(err);
+    console.log("Found: ", foundUser);
+    res.render("ShowUsers", { user: foundUser });
+  });
+});
+
 //Make sure the server is running
 app.listen(3000, (req, res) => {
   console.log("listening on port 3000");
