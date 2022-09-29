@@ -387,6 +387,14 @@ app.get("/sonygames/:id", (req, res) => {
   });
 });
 
+app.get("/consoles/:id", (req, res) => {
+  Console.findById(req.params.id, (err, foundConsole) => {
+    console.log(err);
+    console.log("Found: ", foundConsole);
+    res.render("ShowConsole", { console: foundConsole });
+  });
+});
+
 app.get("/users/:id", (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     console.log(err);
