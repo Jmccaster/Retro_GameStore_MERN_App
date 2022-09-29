@@ -16,18 +16,23 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
   console.log("Connected to database");
 });
 
-//Override: CRUD methods
+//Override: CRUD methods.
 const methodOverride = require("method-override");
+
+// Middleware
+
+//tells express to try to match requests with files in the directory called 'public'
+app.use(express.static("public"));
 
 // Create JSX link
 app.set("view engine", "jsx");
 // Link JSX to app
 app.engine("jsx", require("express-react-views").createEngine());
 
-//Middleware
 // Create body parser
 app.use(express.urlencoded({ extended: false }));
 
+// Instantiates methodOverride for the CRUD methods
 app.use(methodOverride("_method"));
 
 //Routes (CRUD)
@@ -38,7 +43,7 @@ app.get("/", (req, res) => {
   res.render("Home");
 });
 
-// Nintendo Page
+// Nintendo Main Page
 app.get("/nintendogames", (req, res) => {
   Nintendo.find({}, (err, allNintendoGames) => {
     console.log(err);
@@ -51,7 +56,7 @@ app.get("/nintendogames", (req, res) => {
   });
 });
 
-// Microsoft Page
+// Microsoft Main Page
 app.get("/microsoftgames", (req, res) => {
   Microsoft.find({}, (err, allMicrosoftGames) => {
     console.log(err);
@@ -64,7 +69,7 @@ app.get("/microsoftgames", (req, res) => {
   });
 });
 
-// Sony Page
+// Sony Main Page
 app.get("/sonygames", (req, res) => {
   Sony.find({}, (err, allSonyGames) => {
     console.log(err);
@@ -77,7 +82,12 @@ app.get("/sonygames", (req, res) => {
   });
 });
 
-// Users Page
+// Consoles Main Page
+app.get("/consoles", (req, res) => {
+  res.send("This is where list of consoles will go");
+});
+
+// Users Main Page
 app.get("/users", (req, res) => {
   User.find({}, (err, allUsers) => {
     console.log(err);
@@ -284,7 +294,7 @@ app.delete("/users/:id", (req, res) => {
   });
 });
 
-// Seeds Route (Optional)
+// Seeds Route (Optional) (Sample data to put into our database to ensure it is populating correctly)
 app.get("/nintendogames/seed", (req, res) => {
   Nintendo.create(
     [

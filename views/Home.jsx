@@ -12,6 +12,8 @@ class Home extends React.Component {
           <br />
           <a href="/sonygames">Sony Page</a>
           <br />
+          <a href="/consoles">Consoles</a>
+          <br />
           <a href="/users">Users Page</a>
         </div>
       </DefaultLayout>

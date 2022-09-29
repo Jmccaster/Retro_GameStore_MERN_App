@@ -19,7 +19,7 @@ class Show extends React.Component {
           <h3>Description: {game.description}</h3>
           <h3>Platform: {game.platform}</h3>
           <h3>
-            Is the game checked out?:{" "}
+            Availability:{" "}
             {game.gameCheckedOut
               ? "Sorry, game is currently unavailable."
               : "Game is currently available to rent!"}
