@@ -17,6 +17,13 @@ class Consoles extends React.Component {
               return (
                 <li key={i}>
                   <a href={`/consoles/${console.id}`}> {console.name} </a>
+
+                  <form
+                    action={`/consoles/${console._id}?_method=DELETE`}
+                    method="POST"
+                  >
+                    <input type="submit" value="Delete" />
+                  </form>
                 </li>
               );
             })}

@@ -19,6 +19,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 //Override: CRUD methods.
 const methodOverride = require("method-override");
+const { create } = require("./models/NintendoGames");
 
 // Middleware
 
@@ -305,6 +306,13 @@ app.delete("/sonygames/:id", (req, res) => {
   Sony.findByIdAndRemove(req.params.id, (err, foundSonyGame) => {
     console.log("Deleted", foundSonyGame);
     res.redirect("/sonygames");
+  });
+});
+
+app.delete("/consoles/:id", (req, res) => {
+  Console.findByIdAndRemove(req.params.id, (err, foundConsole) => {
+    console.log("Deleted", foundConsole);
+    res.redirect("/consoles");
   });
 });
 
