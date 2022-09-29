@@ -6,6 +6,7 @@ const Nintendo = require("./models/NintendoGames");
 const Sony = require("./models/SonyGames");
 const Microsoft = require("./models/MicrosoftGames");
 const User = require("./models/Users");
+const Console = require("./models/Consoles");
 
 const mongoose = require("mongoose");
 
@@ -84,7 +85,11 @@ app.get("/sonygames", (req, res) => {
 
 // Consoles Main Page
 app.get("/consoles", (req, res) => {
-  res.send("This is where list of consoles will go");
+  Console.find({}, (err, allConsoles) => {
+    console.log(err);
+
+    res.render("Consoles", { consoles: allConsoles });
+  });
 });
 
 // Users Main Page
@@ -173,6 +178,18 @@ app.post("/users", (req, res) => {
     console.log(err);
   });
   res.redirect("/users");
+});
+
+app.post("/consoles", (req, res) => {
+  if (req.body.availability === "on") {
+    req.body.availability = true;
+  } else {
+    req.body.availability = false;
+  }
+  Console.create(req.body, (err, createConsole) => {
+    console.log(err);
+  });
+  res.redirect("/consoles");
 });
 
 // Edit Routes

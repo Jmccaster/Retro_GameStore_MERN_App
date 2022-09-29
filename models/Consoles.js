@@ -8,4 +8,4 @@ const consoleSchema = new mongoose.Schema({
 
 const Console = mongoose.model("Console", consoleSchema);
 
-module.export = Console;
+module.exports = Console;
