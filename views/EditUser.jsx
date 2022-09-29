@@ -1,7 +1,7 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/Default");
 
-class EditUsers extends React.Component {
+class EditUser extends React.Component {
   render() {
     const { user } = this.props;
     return (
@@ -47,4 +47,4 @@ class EditUsers extends React.Component {
   }
 }
 
-module.exports = EditUsers;
+module.exports = EditUser;

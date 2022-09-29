@@ -169,18 +169,6 @@ app.post("/sonygames", (req, res) => {
   res.redirect("/sonygames");
 });
 
-app.post("/users", (req, res) => {
-  // if (req.body.renterOrOwner === "on") {
-  //   req.body.renterOrOwner = true;
-  // } else {
-  //   req.body.renterOrOwner = false;
-  // }
-  User.create(req.body, (err, createUser) => {
-    console.log(err);
-  });
-  res.redirect("/users");
-});
-
 app.post("/consoles", (req, res) => {
   if (req.body.availability === "on") {
     req.body.availability = true;
@@ -191,6 +179,18 @@ app.post("/consoles", (req, res) => {
     console.log(err);
   });
   res.redirect("/consoles");
+});
+
+app.post("/users", (req, res) => {
+  // if (req.body.renterOrOwner === "on") {
+  //   req.body.renterOrOwner = true;
+  // } else {
+  //   req.body.renterOrOwner = false;
+  // }
+  User.create(req.body, (err, createUser) => {
+    console.log(err);
+  });
+  res.redirect("/users");
 });
 
 // Edit Routes
@@ -227,10 +227,17 @@ app.get("/sonygames/:id/edit", (req, res) => {
   });
 });
 
+app.get("/consoles/:id/edit", (req, res) => {
+  Console.findById(req.params.id, (err, foundConsole) => {
+    console.log(err);
+    res.render("EditConsole", { console: foundConsole });
+  });
+});
+
 app.get("/users/:id/edit", (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     console.log(err);
-    res.render("EditUsers", { user: foundUser });
+    res.render("EditUser", { user: foundUser });
   });
 });
 
@@ -273,6 +280,17 @@ app.put("/sonygames/:id", (req, res) => {
   }
   Sony.findByIdAndUpdate(req.params.id, req.body, (err, updatedSonyGame) => {
     res.redirect(`/sonygames/${req.params.id}`);
+  });
+});
+
+app.put("/consoles/:id", (req, res) => {
+  if (req.body.availability === "on") {
+    req.body.availability = true;
+  } else {
+    req.body.availability = false;
+  }
+  Console.findByIdAndUpdate(req.params.id, req.body, (err, updatedConsole) => {
+    res.redirect(`/consoles/${req.params.id}`);
   });
 });
 
