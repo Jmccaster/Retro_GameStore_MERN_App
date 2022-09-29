@@ -16,11 +16,11 @@ class NewConsole extends React.Component {
             </label>
             <br />
             <label>
-              Availability: <input type="checkbox" name="availability" />
+              Photo: <input type="text" name="photo" />
             </label>
             <br />
             <label>
-              Photo: <input type="text" name="photo" />
+              Availability: <input type="checkbox" name="availability" />
             </label>
             <br />
             <label>
