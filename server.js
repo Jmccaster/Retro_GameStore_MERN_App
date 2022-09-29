@@ -294,12 +294,8 @@ app.put("/consoles/:id", (req, res) => {
   });
 });
 
+// The user route has three ternary operators within it's show route. So if/else state will not be needed here.
 app.put("/users/:id", (req, res) => {
-  // if (req.body.renterOrOwner === "on") {
-  //   req.body.renterOrOwner = true;
-  // } else {
-  //   req.body.renterOrOwner = false;
-  // }
   User.findByIdAndUpdate(req.params.id, req.body, (err, updatedUser) => {
     res.redirect(`/users/${req.params.id}`);
   });
