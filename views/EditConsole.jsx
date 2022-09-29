@@ -24,7 +24,7 @@ class EditConsole extends React.Component {
               required
             />
             <br />
-            Photo:
+            Image:
             <input defaultValue={console.photo} type="text" name="photo" />
             <br />
             Availability:{" "}

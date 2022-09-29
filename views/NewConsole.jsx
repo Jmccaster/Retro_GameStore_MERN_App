@@ -16,7 +16,7 @@ class NewConsole extends React.Component {
             </label>
             <br />
             <label>
-              Photo: <input type="text" name="photo" />
+              Image: <input type="text" name="photo" />
             </label>
             <br />
             <label>

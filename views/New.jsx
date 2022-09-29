@@ -18,9 +18,9 @@ class New extends React.Component {
             <br />
             Platform: <input type="text" name="platform" required />
             <br />
-            Availability: <input type="checkbox" name="gameCheckedOut" />
+            Image: <input type="text" name="photo" />
             <br />
-            photo: <input type="text" name="photo" />
+            Availability: <input type="checkbox" name="gameCheckedOut" />
             <br />
             <input type="submit" value="Create Game" />
           </form>
