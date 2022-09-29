@@ -1,7 +1,7 @@
 const React = require("react");
-
 const DefaultLayout = require("./layouts/Default");
-class NewUsers extends React.Component {
+
+class NewUser extends React.Component {
   render() {
     return (
       <DefaultLayout title={"New Users Page"}>
@@ -15,9 +15,9 @@ class NewUsers extends React.Component {
             <br />
             Password: <input type="password" name="password" required />
             <br />
-            Will you be a buyer, a seller, or both?: Renter:
+            Will you be a renter, a lender, or both?: Renter:
             <input type="checkbox" name="renter" />
-            Owner:
+            Lender:
             <input type="checkbox" name="owner" />
             Both:
             <input type="checkbox" name="both" />
@@ -30,4 +30,4 @@ class NewUsers extends React.Component {
   }
 }
 
-module.exports = NewUsers;
+module.exports = NewUser;

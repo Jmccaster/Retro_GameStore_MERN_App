@@ -118,8 +118,12 @@ app.get("/sonygames/new", (req, res) => {
   });
 });
 
+app.get("/consoles/new", (req, res) => {
+  res.render("NewConsole");
+});
+
 app.get("/users/new", (req, res) => {
-  res.render("NewUsers");
+  res.render("NewUser");
 });
 
 // Create/ Post Routes
