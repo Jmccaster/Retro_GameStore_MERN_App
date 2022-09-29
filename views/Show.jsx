@@ -15,13 +15,14 @@ class Show extends React.Component {
           </nav>
           <h1>Game Profile</h1>
           <h1>{game.title}</h1>
+          <img src={game.photo} alt="game img" width="400px" height="400px" />
           <h3>Genre: {game.genre}</h3>
           <h3>Description: {game.description}</h3>
           <h3>Platform: {game.platform}</h3>
           <h3>
-            Availability:{" "}
+            Availability:
             {game.gameCheckedOut
-              ? "Sorry, game is currently unavailable."
+              ? "Sorry, this game is currently unavailable."
               : "Game is currently available to rent!"}
           </h3>
         </div>

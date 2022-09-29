@@ -41,6 +41,9 @@ class Edit extends React.Component {
               required
             />
             <br />
+            Photo:
+            <input defaultValue={game.photo} type="text" name="photo" />
+            <br />
             Is the game checked out?:{" "}
             {game.gameCheckedOUT ? (
               <input type="checkbox" name="gameCheckedOut" defaultChecked />

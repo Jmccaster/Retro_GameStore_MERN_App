@@ -11,6 +11,13 @@ class ShowConsole extends React.Component {
             <a href="/consoles"> Back to Console Dashboard</a>
           </nav>
           <h1>Console Profile</h1>
+          photo:
+          <img
+            src={console.photo}
+            alt="console img"
+            width="400px"
+            height="400px"
+          />
           <h1>{console.name}</h1>
           <h3>{console.description}</h3>
           <h3>

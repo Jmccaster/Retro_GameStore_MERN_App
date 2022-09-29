@@ -20,6 +20,8 @@ class New extends React.Component {
             <br />
             Availability: <input type="checkbox" name="gameCheckedOut" />
             <br />
+            photo: <input type="text" name="photo" />
+            <br />
             <input type="submit" value="Create Game" />
           </form>
         </>

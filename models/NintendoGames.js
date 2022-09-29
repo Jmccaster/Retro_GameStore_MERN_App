@@ -5,6 +5,7 @@ const nintendoSchema = new mongoose.Schema({
   genre: { type: String, required: true },
   description: { type: String, required: true },
   platform: { type: String, required: true },
+  photo: { type: String },
   gameCheckedOut: Boolean,
 });
 

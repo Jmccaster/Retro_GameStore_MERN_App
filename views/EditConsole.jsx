@@ -31,6 +31,9 @@ class EditConsole extends React.Component {
               <input type="checkbox" name="availability" />
             )}
             <br />
+            Photo:
+            <input defaultValue={console.photo} type="text" name="photo" />
+            <br />
             <input type="submit" value="Submit Changes" />
           </form>
         </div>
