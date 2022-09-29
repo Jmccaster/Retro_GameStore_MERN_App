@@ -294,7 +294,7 @@ app.put("/consoles/:id", (req, res) => {
   });
 });
 
-// The user route has three ternary operators within it's show route. So if/else state will not be needed here.
+// Note: The user route has three ternary operators within it's show route. So if/else state will not be needed here, as it will conflict with data.
 app.put("/users/:id", (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body, (err, updatedUser) => {
     res.redirect(`/users/${req.params.id}`);
