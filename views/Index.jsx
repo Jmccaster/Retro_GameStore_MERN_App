@@ -9,6 +9,7 @@ class Index extends React.Component {
     // console.log(this.props);
     return (
       <DefaultLayout title={` ${pName} Games Dashboard `}>
+        <link rel="stylesheet" href={`/css/${pName}App.css`} />
         <nav>
           <a href="/">Home</a>
           <br />
