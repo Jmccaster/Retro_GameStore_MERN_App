@@ -1,0 +1,34 @@
+body {
+  margin: 0%;
+}
+
+h1 {
+  font-family: "Righteous", cursive;
+  background: black;
+  color: white;
+  margin: 0;
+  margin-bottom: 0.5em;
+  padding: 1em;
+  text-align: center;
+}
+
+.pageContainer {
+  display: flex;
+  justify-content: space-evenly;
+  height: 154vh;
+}
+
+.platformBox {
+  height: 250px;
+  width: 250px;
+}
+
+.pLink {
+  text-align: center;
+}
+
+.platPic {
+  height: 100%;
+  width: 100%;
+  border: solid;
+}
