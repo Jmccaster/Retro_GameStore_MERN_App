@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 
 const Nintendo = require("./models/NintendoGames");
-const Sony = require("./models/SonyGames");
-const Microsoft = require("./models/MicrosoftGames");
+const PLayStation = require("./models/PlayStationGames");
+const Xbox = require("./models/XboxGames");
 const User = require("./models/Users");
 const Console = require("./models/Consoles");
 
@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 //Override: CRUD methods.
 const methodOverride = require("method-override");
 const { create } = require("./models/NintendoGames");
+const PlayStation = require("./models/PlayStationGames");
 
 // Middleware
 
@@ -58,28 +59,28 @@ app.get("/nintendogames", (req, res) => {
   });
 });
 
-// Microsoft Main Page
-app.get("/microsoftgames", (req, res) => {
-  Microsoft.find({}, (err, allMicrosoftGames) => {
+// Xbox Main Page
+app.get("/xboxgames", (req, res) => {
+  Xbox.find({}, (err, allXboxGames) => {
     console.log(err);
 
     res.render("Index", {
-      games: allMicrosoftGames,
-      platform: "microsoftgames",
-      pName: "Microsoft",
+      games: allXboxGames,
+      platform: "xboxgames",
+      pName: "Xbox",
     });
   });
 });
 
-// Sony Main Page
-app.get("/sonygames", (req, res) => {
-  Sony.find({}, (err, allSonyGames) => {
+// PlayStation Main Page
+app.get("/playstationgames", (req, res) => {
+  PlayStation.find({}, (err, allPlaystationGames) => {
     console.log(err);
 
     res.render("Index", {
-      games: allSonyGames,
-      platform: "sonygames",
-      pName: "Sony",
+      games: allPlaystationGames,
+      platform: "playstationgames",
+      pName: "PlayStation",
     });
   });
 });
@@ -110,17 +111,17 @@ app.get("/nintendogames/new", (req, res) => {
   });
 });
 
-app.get("/microsoftgames/new", (req, res) => {
+app.get("/xboxgames/new", (req, res) => {
   res.render("New", {
-    platform: "microsoftgames",
-    pName: "Microsoft",
+    platform: "xboxgames",
+    pName: "Xbox",
   });
 });
 
-app.get("/sonygames/new", (req, res) => {
+app.get("/playstationgames/new", (req, res) => {
   res.render("New", {
-    platform: "sonygames",
-    pName: "Sony",
+    platform: "playstationgames",
+    pName: "PlayStation",
   });
 });
 
@@ -145,28 +146,28 @@ app.post("/nintendogames", (req, res) => {
   res.redirect("/nintendogames");
 });
 
-app.post("/microsoftgames", (req, res) => {
+app.post("/xboxgames", (req, res) => {
   if (req.body.gameCheckedOut === "on") {
     req.body.gameCheckedOut = true;
   } else {
     req.body.gameCheckedOut = false;
   }
-  Microsoft.create(req.body, (err, createdNintendoGame) => {
+  Xbox.create(req.body, (err, createdXboxGame) => {
     console.log(err);
   });
-  res.redirect("/microsoftgames");
+  res.redirect("/xboxgames");
 });
 
-app.post("/sonygames", (req, res) => {
+app.post("/playstationgames", (req, res) => {
   if (req.body.gameCheckedOut === "on") {
     req.body.gameCheckedOut = true;
   } else {
     req.body.gameCheckedOut = false;
   }
-  Sony.create(req.body, (err, createSonyGame) => {
+  PlayStation.create(req.body, (err, createPlaystationGame) => {
     console.log(err);
   });
-  res.redirect("/sonygames");
+  res.redirect("/playstationgames");
 });
 
 app.post("/consoles", (req, res) => {
@@ -205,24 +206,24 @@ app.get("/nintendogames/:id/edit", (req, res) => {
   });
 });
 
-app.get("/microsoftgames/:id/edit", (req, res) => {
-  Microsoft.findById(req.params.id, (err, foundMicrosoftGame) => {
+app.get("/xboxgames/:id/edit", (req, res) => {
+  Xbox.findById(req.params.id, (err, foundXboxGame) => {
     console.log(err);
     res.render("Edit", {
-      game: foundMicrosoftGame,
-      platform: "microsoftgames",
-      pName: "Microsoft",
+      game: foundXboxGame,
+      platform: "xboxgames",
+      pName: "Xbox",
     });
   });
 });
 
-app.get("/sonygames/:id/edit", (req, res) => {
-  Sony.findById(req.params.id, (err, foundSonyGame) => {
+app.get("/playstationgames/:id/edit", (req, res) => {
+  PlayStation.findById(req.params.id, (err, foundPlaystationGame) => {
     console.log(err);
     res.render("Edit", {
-      game: foundSonyGame,
-      platform: "sonygames",
-      pName: "Sony",
+      game: foundPlaystationGame,
+      platform: "playstationgames",
+      pName: "PlayStation",
     });
   });
 });
@@ -257,30 +258,34 @@ app.put("/nintendogames/:id", (req, res) => {
   );
 });
 
-app.put("/microsoftgames/:id", (req, res) => {
+app.put("/xboxgames/:id", (req, res) => {
   if (req.body.gameCheckedOut === "on") {
     req.body.gameCheckedOut = true;
   } else {
     req.body.gameCheckedOut = false;
   }
-  Microsoft.findByIdAndUpdate(
+  Xbox.findByIdAndUpdate(
     req.params.id,
     req.body,
     (err, updatedMicrosoftGame) => {
-      res.redirect(`/microsoftgames/${req.params.id}`);
+      res.redirect(`/xboxgames/${req.params.id}`);
     }
   );
 });
 
-app.put("/sonygames/:id", (req, res) => {
+app.put("/playstationgames/:id", (req, res) => {
   if (req.body.gameCheckedOut === "on") {
     req.body.gameCheckedOut = true;
   } else {
     req.body.gameCheckedOut = false;
   }
-  Sony.findByIdAndUpdate(req.params.id, req.body, (err, updatedSonyGame) => {
-    res.redirect(`/sonygames/${req.params.id}`);
-  });
+  PlayStation.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    (err, updatedPlaystationGame) => {
+      res.redirect(`/playstationgames/${req.params.id}`);
+    }
+  );
 });
 
 app.put("/consoles/:id", (req, res) => {
@@ -309,17 +314,17 @@ app.delete("/nintendogames/:id", (req, res) => {
   });
 });
 
-app.delete("/microsoftgames/:id", (req, res) => {
-  Microsoft.findByIdAndRemove(req.params.id, (err, foundMicrosoftGame) => {
-    console.log("Deleted", foundMicrosoftGame);
-    res.redirect("/microsoftgames");
+app.delete("/xboxgames/:id", (req, res) => {
+  Xbox.findByIdAndRemove(req.params.id, (err, foundXboxGame) => {
+    console.log("Deleted", foundXboxGame);
+    res.redirect("/xboxgames");
   });
 });
 
-app.delete("/sonygames/:id", (req, res) => {
-  Sony.findByIdAndRemove(req.params.id, (err, foundSonyGame) => {
-    console.log("Deleted", foundSonyGame);
-    res.redirect("/sonygames");
+app.delete("/playstationgames/:id", (req, res) => {
+  PlayStation.findByIdAndRemove(req.params.id, (err, foundPlaystationGame) => {
+    console.log("Deleted", foundPlaystationGame);
+    res.redirect("/playstationgames");
   });
 });
 
@@ -385,26 +390,26 @@ app.get("/nintendogames/:id", (req, res) => {
   });
 });
 
-app.get("/microsoftgames/:id", (req, res) => {
-  Microsoft.findById(req.params.id, (err, foundMicrosoftGame) => {
+app.get("/xboxgames/:id", (req, res) => {
+  Xbox.findById(req.params.id, (err, foundXboxGame) => {
     console.log(err);
-    console.log("Found: ", foundMicrosoftGame);
+    console.log("Found: ", foundXboxGame);
     res.render("Show", {
-      game: foundMicrosoftGame,
-      platform: "microsoftgames",
-      pName: "Microsoft",
+      game: foundXboxGame,
+      platform: "xboxgames",
+      pName: "Xbox",
     });
   });
 });
 
-app.get("/sonygames/:id", (req, res) => {
-  Sony.findById(req.params.id, (err, foundSonyGame) => {
+app.get("/playstationgames/:id", (req, res) => {
+  PlayStation.findById(req.params.id, (err, foundPlaystationGame) => {
     console.log(err);
-    console.log("Found: ", foundSonyGame);
+    console.log("Found: ", foundPlaystationGame);
     res.render("Show", {
-      game: foundSonyGame,
-      platform: "sonygames",
-      pName: "Sony",
+      game: foundPlaystationGame,
+      platform: "playstationgames",
+      pName: "PlayStation",
     });
   });
 });

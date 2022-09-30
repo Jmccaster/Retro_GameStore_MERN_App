@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const microsoftSchema = new mongoose.Schema({
+const playstationSchema = new mongoose.Schema({
   title: { type: String, required: true },
   genre: { type: String, required: true },
   description: { type: String, required: true },
@@ -9,6 +9,6 @@ const microsoftSchema = new mongoose.Schema({
   gameCheckedOut: Boolean,
 });
 
-const Microsoft = mongoose.model("Microsoft", microsoftSchema);
+const PlayStation = mongoose.model("PlayStation", playstationSchema);
 
-module.exports = Microsoft;
+module.exports = PlayStation;

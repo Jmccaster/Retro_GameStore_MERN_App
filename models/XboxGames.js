@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const sonySchema = new mongoose.Schema({
+const xboxSchema = new mongoose.Schema({
   title: { type: String, required: true },
   genre: { type: String, required: true },
   description: { type: String, required: true },
@@ -9,6 +9,6 @@ const sonySchema = new mongoose.Schema({
   gameCheckedOut: Boolean,
 });
 
-const Sony = mongoose.model("Sony", sonySchema);
+const Xbox = mongoose.model("Xbox", xboxSchema);
 
-module.exports = Sony;
+module.exports = Xbox;

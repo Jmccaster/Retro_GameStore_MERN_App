@@ -19,8 +19,8 @@ class Home extends React.Component {
           </div>
           <div className="platformBox">
             <div className="pLink">
-              <a href="/microsoftgames" className="pLink">
-                Microsoft Page
+              <a href="/xboxgames" className="pLink">
+                Xbox Page
               </a>
             </div>
             <img
@@ -31,8 +31,8 @@ class Home extends React.Component {
           </div>
           <div className="platformBox">
             <div className="pLink">
-              <a href="/sonygames" className="pLink">
-                Sony Page
+              <a href="/playstationgames" className="pLink">
+                PlayStation Page
               </a>
             </div>
             <img
