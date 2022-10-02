@@ -51,7 +51,7 @@ class Edit extends React.Component {
               <input type="checkbox" name="gameCheckedOut" />
             )}
             <br />
-            <input type="submit" value="Create Game" />
+            <input type="submit" value="Submit Change" />
           </form>
         </div>
       </DefaultLayout>

@@ -19,6 +19,13 @@ class Index extends React.Component {
           {games.map((game, i) => {
             return (
               <li key={i}>
+                <img
+                  src={game.photo}
+                  alt="game img"
+                  width="200px"
+                  height="200px"
+                />
+                <br />
                 <a href={`/${platform}/${game.id}`}>{game.title}</a>
                 <br />
 
