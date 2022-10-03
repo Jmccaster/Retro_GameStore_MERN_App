@@ -3,6 +3,7 @@
 body {
   background: url(https://wallpaperaccess.com/full/357133.jpg);
   background-size: cover;
+  background-attachment: fixed;
   margin: 0;
 }
 

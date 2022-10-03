@@ -2,6 +2,7 @@
 
 body {
   background: url(https://img4.goodfon.com/wallpaper/nbig/c/f5/nintendo-nintendo-gc-igrovaia-konsol-igrovaia-pristavka-game.jpg);
+  background-attachment: fixed;
   background-size: cover;
   margin: 0;
 }

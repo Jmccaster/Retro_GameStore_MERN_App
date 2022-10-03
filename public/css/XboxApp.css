@@ -3,6 +3,7 @@
 body {
   background: url(https://d1lss44hh2trtw.cloudfront.net/assets/article/2021/08/24/xbox-cloud-gaming_feature.jpg);
   background-size: cover;
+  background-attachment: fixed;
   margin: 0;
 }
 
