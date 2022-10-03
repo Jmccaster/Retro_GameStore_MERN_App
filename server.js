@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 const Nintendo = require("./models/NintendoGames");
-const PLayStation = require("./models/PlayStationGames");
+const PlayStation = require("./models/PlayStationGames");
 const Xbox = require("./models/XboxGames");
 const User = require("./models/Users");
 const Console = require("./models/Consoles");
@@ -19,8 +19,6 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 //Override: CRUD methods.
 const methodOverride = require("method-override");
-const { create } = require("./models/NintendoGames");
-const PlayStation = require("./models/PlayStationGames");
 
 // Middleware
 
