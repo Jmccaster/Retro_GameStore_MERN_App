@@ -6,6 +6,7 @@ class Consoles extends React.Component {
     const { consoles } = this.props;
     return (
       <DefaultLayout title={"Gaming Consoles Dashboard"}>
+        <link rel="stylesheet" href="/css/ConsolesApp.css" />
         <div>
           <nav>
             <a href="/">Home</a>
@@ -16,6 +17,13 @@ class Consoles extends React.Component {
             {consoles.map((console, i) => {
               return (
                 <li key={i}>
+                  <img
+                    src={console.photo}
+                    alt="console img"
+                    width="200px"
+                    height="200px"
+                  />
+                  <br />
                   <a href={`/consoles/${console.id}`}> {console.name} </a>
 
                   <form action={`consoles/${console._id}/edit`}>
