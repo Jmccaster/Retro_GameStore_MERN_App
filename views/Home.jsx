@@ -24,7 +24,7 @@ class Home extends React.Component {
               </a>
             </div>
             <img
-              src="https://w0.peakpx.com/wallpaper/395/821/HD-wallpaper-x-box-logo-game-microsoft-xb-xbox.jpg"
+              src="https://www.shareicon.net/data/512x512/2015/07/23/74023_xbox_512x512.png"
               alt=""
               className="platPic"
             />
@@ -36,7 +36,7 @@ class Home extends React.Component {
               </a>
             </div>
             <img
-              src="https://images7.alphacoders.com/489/489590.jpg"
+              src="https://blackmilkgaming.com/wp-content/uploads/2021/02/psn.png"
               alt=""
               className="platPic"
             />
